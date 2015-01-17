@@ -34,6 +34,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	com.liferay.portlet.journal.search.JournalArticleSearchTest.class,
 	com.liferay.portlet.journal.search.JournalFolderSearchTest.class,
 	com.liferay.portlet.messageboards.search.MBMessageSearchTest.class,
+	com.liferay.portlet.usersadmin.util.UserIndexerTest.class,
 	com.liferay.portlet.wiki.search.WikiPageSearchTest.class
 })
 public class AllSearchTests {
