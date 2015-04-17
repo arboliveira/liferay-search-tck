@@ -27,6 +27,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	com.liferay.portlet.asset.search.AssetVocabularySearchTest.class,
 	com.liferay.portlet.blogs.asset.BlogsEntryAssetSearchTest.class,
 	com.liferay.portlet.blogs.search.BlogsEntrySearchTest.class,
+	com.liferay.portal.search.tck.bookmarks.BookmarksEntrySearchTest.class,
+	com.liferay.portal.search.tck.bookmarks.BookmarksFolderSearchTest.class,
 	com.liferay.portlet.documentlibrary.search.DLFileEntrySearchTest.class,
 	com.liferay.portlet.documentlibrary.search.DLFolderSearchTest.class,
 	com.liferay.portal.search.tck.dynamic.data.lists.DDLRecordSearchTest.class,
