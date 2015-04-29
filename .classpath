@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="/portal-master/lib/development/junit.jar" sourcepath="/Users/arbo/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/dynamic-data-lists-test-master"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bookmarks-test-master"/>
+	<classpathentry kind="lib" path="/bookmarks-test-master/lib/arquillian-deployment-generator-bnd.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

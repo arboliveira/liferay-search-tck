@@ -1,28 +1,13 @@
 package com.liferay.portal.search.tck.bookmarks;
 
-import org.junit.ClassRule;
-import org.junit.Ignore;
-import org.junit.Rule;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.arquillian.liferay.deploymentscenario.annotations.BndFile;
 
-import com.liferay.portal.kernel.test.rule.AggregateTestRule;
-import com.liferay.portal.kernel.test.rule.Sync;
-import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
-import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
-import com.liferay.portal.test.rule.MainServletTestRule;
-
-@Ignore("Must appease both Eclipse and OSGi classloaders")
-@RunWith(JUnit4.class)
-@Sync
+@BndFile(
+		"/Users/arbo/development/search-tck/search-tck"
+		+ "/test/integration"
+		+ "/com/liferay/portal/search/tck/bookmarks"
+		+ "/bnd.bnd")
 public class BookmarksEntrySearchTest 
 	extends com.liferay.bookmarks.search.test.BookmarksEntrySearchTest {
-
-	@ClassRule
-	@Rule
-	public static final AggregateTestRule aggregateTestRule =
-		new AggregateTestRule(
-			new LiferayIntegrationTestRule(), MainServletTestRule.INSTANCE,
-			SynchronousDestinationTestRule.INSTANCE);
 		
 }
