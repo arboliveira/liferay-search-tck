@@ -32,9 +32,9 @@ import org.junit.runners.Suite.SuiteClasses;
 	com.liferay.portlet.documentlibrary.search.DLFileEntrySearchTest.class,
 	com.liferay.portlet.documentlibrary.search.DLFolderSearchTest.class,
 	com.liferay.portal.search.tck.dynamic.data.lists.DDLRecordSearchTest.class,
-	com.liferay.portlet.journal.asset.JournalArticleAssetSearchTest.class,
-	com.liferay.portlet.journal.search.JournalArticleSearchTest.class,
-	com.liferay.portlet.journal.search.JournalFolderSearchTest.class,
+	com.liferay.portal.search.tck.journal.JournalArticleAssetSearchTest.class,
+	com.liferay.portal.search.tck.journal.JournalArticleSearchTest.class,
+	com.liferay.portal.search.tck.journal.JournalFolderSearchTest.class,
 	com.liferay.portlet.messageboards.search.MBMessageSearchTest.class,
 	com.liferay.portlet.usersadmin.util.UserIndexerTest.class
 })
