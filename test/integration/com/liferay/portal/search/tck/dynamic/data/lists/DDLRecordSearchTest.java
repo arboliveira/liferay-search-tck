@@ -14,7 +14,7 @@ import com.liferay.portal.test.rule.MainServletTestRule;
 @RunWith(JUnit4.class)
 @Sync
 public class DDLRecordSearchTest 
-	extends com.liferay.dynamic.data.lists.search.DDLRecordSearchTest {
+	extends com.liferay.dynamic.data.lists.search.test.DDLRecordSearchTest {
 
 	@ClassRule
 	@Rule
