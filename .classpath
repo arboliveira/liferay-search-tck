@@ -9,5 +9,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/bookmarks-test-master"/>
 	<classpathentry kind="lib" path="/portal-master/modules/portal/portal-rest-extender-test/lib/arquillian-deployment-generator-bnd.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/journal-test-master"/>
+	<classpathentry kind="lib" path="/portal-master/modules/sdk/ant-arquillian/lib/arquillian-test-spi.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
