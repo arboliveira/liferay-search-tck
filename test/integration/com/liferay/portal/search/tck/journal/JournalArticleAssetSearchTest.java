@@ -14,7 +14,7 @@ import com.liferay.portal.test.rule.MainServletTestRule;
 @RunWith(JUnit4.class)
 @Sync
 public class JournalArticleAssetSearchTest 
-	extends com.liferay.journal.asset.JournalArticleAssetSearchTest {
+	extends com.liferay.journal.asset.test.JournalArticleAssetSearchTest {
 
 	@ClassRule
 	@Rule
