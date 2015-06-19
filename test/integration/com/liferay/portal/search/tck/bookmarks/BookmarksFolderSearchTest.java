@@ -2,9 +2,10 @@ package com.liferay.portal.search.tck.bookmarks;
 
 import org.arquillian.liferay.deploymentscenario.annotations.BndFile;
 
+import com.liferay.portal.search.tck.bnd.BndConstants;
+
 @BndFile(
-		"/Users/arbo/development/search-tck/search-tck"
-		+ "/test/integration"
+		BndConstants.BASE_DIR 
 		+ "/com/liferay/portal/search/tck/bookmarks"
 		+ "/bnd.bnd")
 public class BookmarksFolderSearchTest 
