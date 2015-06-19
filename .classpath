@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="/portal-master/modules/portal/portal-rest-extender-test/lib/arquillian-deployment-generator-bnd.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/journal-test-master"/>
 	<classpathentry kind="lib" path="/portal-master/modules/sdk/ant-arquillian/lib/arquillian-test-spi.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/wiki-test-master"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
