@@ -26,6 +26,9 @@ import org.junit.runners.Suite.SuiteClasses;
 	com.liferay.portal.search.tck.bookmarks.BookmarksEntrySearchTest.class,
 	com.liferay.portal.search.tck.bookmarks.BookmarksFolderSearchTest.class,
 	com.liferay.portal.search.tck.dynamic.data.lists.DDLRecordSearchTest.class,
+	com.liferay.portal.search.tck.journal.JournalArticleAssetSearchTest.class,
+	com.liferay.portal.search.tck.journal.JournalArticleSearchTest.class,
+	com.liferay.portal.search.tck.journal.JournalFolderSearchTest.class,
 	com.liferay.portal.search.tck.wiki.WikiPageSearchTest.class
 })
 public class AllSearchTestsArquillian {
