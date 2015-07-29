@@ -25,6 +25,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses( {
 	com.liferay.portal.search.tck.bookmarks.BookmarksEntrySearchTest.class,
 	com.liferay.portal.search.tck.bookmarks.BookmarksFolderSearchTest.class,
+	com.liferay.portal.search.tck.document.library.DLFileEntrySearchTest.class,
 	com.liferay.portal.search.tck.dynamic.data.lists.DDLRecordSearchTest.class,
 	com.liferay.portal.search.tck.journal.JournalArticleAssetSearchTest.class,
 	com.liferay.portal.search.tck.journal.JournalArticleSearchTest.class,
