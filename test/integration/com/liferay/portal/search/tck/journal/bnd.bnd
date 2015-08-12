@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Search Test Compatibility Kit: Journal
 Bundle-SymbolicName: com.liferay.portal.search.tck.journal
 Bundle-Version: 1.0.0
+Import-Package:\
+	!com.liferay.util.xml,\
+	!org.junit.experimental.theories,\
+	*
 Include-Resource:\
 	/Users/arbo/git/liferay-portal/modules/apps/journal/journal-test/classes,\
 	/Users/arbo/git/liferay-portal/modules/apps/journal/journal-test/test-classes/integration,\

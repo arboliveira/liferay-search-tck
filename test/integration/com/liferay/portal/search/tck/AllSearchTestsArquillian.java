@@ -19,6 +19,8 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 /**
+ * @see search-tck/sh/ant-deploy-arquillian-tests.sh
+ * 
  * @author André de Oliveira
  */
 @RunWith(Suite.class)
@@ -28,8 +30,11 @@ import org.junit.runners.Suite.SuiteClasses;
 	com.liferay.portal.search.tck.document.library.DLFileEntrySearchTest.class,
 	com.liferay.portal.search.tck.dynamic.data.lists.DDLRecordSearchTest.class,
 	com.liferay.portal.search.tck.journal.JournalArticleAssetSearchTest.class,
+	com.liferay.portal.search.tck.journal.JournalArticleIndexableTest.class,
+	com.liferay.portal.search.tck.journal.JournalArticleIndexVersionsTest.class,
 	com.liferay.portal.search.tck.journal.JournalArticleSearchTest.class,
 	com.liferay.portal.search.tck.journal.JournalFolderSearchTest.class,
+	com.liferay.portal.search.tck.journal.JournalIndexerTest.class,
 	com.liferay.portal.search.tck.wiki.WikiPageSearchTest.class
 })
 public class AllSearchTestsArquillian {
