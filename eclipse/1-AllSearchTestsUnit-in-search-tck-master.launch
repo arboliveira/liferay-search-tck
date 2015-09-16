@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.junit.launchconfig">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/search-tck-master/test/integration/com/liferay/portal/search/tck/dynamic/data/lists/DDLRecordSearchTest.java"/>
+<listEntry value="/search-tck-master/test/unit/com/liferay/portal/search/tck/AllSearchTestsUnit.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
@@ -11,8 +11,6 @@
 <stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
 <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
 <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.liferay.portal.search.tck.dynamic.data.lists.DDLRecordSearchTest"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.liferay.portal.search.tck.AllSearchTestsUnit"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="search-tck-master"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dliferay.mode=test&#10;-D__WHY__liferay.mode=because-of-ElasticSearch-PortalRunMode.isTestMode&#10;-Dexternal-properties=portal-test.properties&#10;-XX:MaxPermSize=256m"/>
-<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:portal-master}"/>
 </launchConfiguration>
