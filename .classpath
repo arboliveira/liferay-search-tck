@@ -15,8 +15,8 @@
 	<classpathentry kind="lib" path="/portal-master/.gradle/caches/modules-2/files-2.1/org.arquillian.liferay/arquillian-container-liferay/1.0.0.Final-SNAPSHOT/e62e9617865744e39d2156df4aa2aaadff960145/arquillian-container-liferay-1.0.0.Final-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="/portal-master/.gradle/caches/modules-2/files-2.1/org.jboss.arquillian.junit/arquillian-junit-core/1.1.8.Final/cce3b06d23b0cd6b383c6a0702b979b5654c733f/arquillian-junit-core-1.1.8.Final.jar" sourcepath="/portal-master/.gradle/caches/modules-2/files-2.1/org.jboss.arquillian.junit/arquillian-junit-core/1.1.8.Final/b882733c690066d75a847d4c53e1eb888c5b0eb/arquillian-junit-core-1.1.8.Final-sources.jar"/>
 	<classpathentry kind="lib" path="/portal-master/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/portal-search"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/portal-master"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/portal-search"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/arquillian-extension-junit-bridge"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/dynamic-data-lists-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/bookmarks-test"/>
