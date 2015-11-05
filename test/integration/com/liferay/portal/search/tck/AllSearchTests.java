@@ -23,6 +23,7 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses( {
+	com.liferay.portal.search.FacetedSearchTest.class,
 	com.liferay.portlet.asset.search.AssetCategorySearchTest.class,
 	com.liferay.portlet.asset.search.AssetVocabularySearchTest.class,
 	com.liferay.portlet.blogs.asset.BlogsEntryAssetSearchTest.class,
