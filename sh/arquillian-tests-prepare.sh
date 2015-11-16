@@ -8,7 +8,7 @@ function ant_deploy()
 {
 	subdir=$1
 	cd ${LIFERAY_PORTAL_DIR}/$subdir
-	ant deploy
+	ant deploy install-portal-snapshot
 }
 
 function gradle_deploy()
