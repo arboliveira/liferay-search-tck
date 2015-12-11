@@ -38,6 +38,7 @@ ant_deploy portal-test-internal
 gradle_deploy modules/apps/dynamic-data-mapping/dynamic-data-mapping-test-util
 
 test_prepare modules/apps/bookmarks/bookmarks-test com.liferay.bookmarks.search.test.BookmarksEntrySearchTest.testSearchBaseModel
+test_prepare modules/apps/calendar/calendar-test com.liferay.calendar.search.test.CalendarSearcherTest.testBasicSearchWithOneTerm
 test_prepare modules/apps/document-library/document-library-test com.liferay.document.library.search.test.DLFileEntrySearchTest.testOrderByDDMTextField
 test_prepare modules/apps/dynamic-data-lists/dynamic-data-lists-test com.liferay.dynamic.data.lists.search.test.DDLRecordSearchTest.testBasicSearchWithJustOneTerm
 test_prepare modules/apps/journal/journal-test com.liferay.journal.search.test.JournalArticleSearchTest.testOrderByDDMTextField

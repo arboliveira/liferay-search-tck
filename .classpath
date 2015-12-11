@@ -27,5 +27,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/journal-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/journal-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/portal-rest-extender-test"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/calendar-test"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

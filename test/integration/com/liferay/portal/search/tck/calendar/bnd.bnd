@@ -1,0 +1,7 @@
+Bundle-Name: Liferay Search Test Compatibility Kit: Calendar
+Bundle-SymbolicName: com.liferay.portal.search.tck.calendar
+Bundle-Version: 1.0.0
+Include-Resource:\
+	/Users/arbo/git/liferay-portal/modules/apps/calendar/calendar-test/classes,\
+	/Users/arbo/git/liferay-portal/modules/apps/calendar/calendar-test/test-classes/integration,\
+	/Users/arbo/git/liferay-portal/portal-impl/test/test-portal-impl.properties
