@@ -31,7 +31,7 @@ function test_prepare()
 }
 
 
-ant_deploy portal-service
+ant_deploy portal-kernel
 ant_deploy portal-test
 ant_deploy portal-test-internal
 
