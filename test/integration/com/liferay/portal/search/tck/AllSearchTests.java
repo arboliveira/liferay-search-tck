@@ -23,6 +23,7 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses( {
+	com.liferay.portal.search.BackupAndRestoreIndexesTest.class,
 	com.liferay.portal.search.DocumentImplTest.class,
 	com.liferay.portal.search.FacetedSearchTest.class,
 	com.liferay.portal.search.IndexerRegistryUtilTest.class,
