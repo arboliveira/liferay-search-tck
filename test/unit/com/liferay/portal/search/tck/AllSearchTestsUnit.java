@@ -28,6 +28,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	com.liferay.message.boards.comment.search.SearchResultUtilMBMessageTest.class,
 	com.liferay.portal.kernel.search.BaseIndexerGetFullQueryTest.class,
 	com.liferay.portal.kernel.search.BaseIndexerGetSiteGroupIdTest.class,
+//	com.liferay.portal.search.internal.facet.FacetManagerImplTest.class,
 	com.liferay.portal.search.internal.result.SearchResultUtilTest.class
 })
 public class AllSearchTestsUnit {

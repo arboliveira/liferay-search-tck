@@ -12,7 +12,7 @@
 	<classpathentry kind="lib" path="/portal-master/.gradle/caches/modules-2/files-2.1/org.arquillian.liferay/arquillian-deployment-generator-bnd/1.0.0.Final-20150827.124553-23/ae3b3d3038fe0b01b1e1a669fd5b6b299579a99/arquillian-deployment-generator-bnd-1.0.0.Final-20150827.124553-23.jar"/>
 	<classpathentry kind="lib" path="/portal-master/.gradle/caches/modules-2/files-2.1/org.jboss.arquillian.test/arquillian-test-spi/1.1.8.Final/75522a600998889f1d4dd3108f2b24ddd2a46230/arquillian-test-spi-1.1.8.Final.jar" sourcepath="/portal-master/.gradle/caches/modules-2/files-2.1/org.jboss.arquillian.test/arquillian-test-spi/1.1.8.Final/4322eeddf60d5bf3bb7f26934ee3af2daf723bfd/arquillian-test-spi-1.1.8.Final-sources.jar"/>
 	<classpathentry kind="lib" path="/portal-master/.gradle/caches/modules-2/files-2.1/org.jboss.arquillian.junit/arquillian-junit-core/1.1.8.Final/cce3b06d23b0cd6b383c6a0702b979b5654c733f/arquillian-junit-core-1.1.8.Final.jar" sourcepath="/portal-master/.gradle/caches/modules-2/files-2.1/org.jboss.arquillian.junit/arquillian-junit-core/1.1.8.Final/b882733c690066d75a847d4c53e1eb888c5b0eb/arquillian-junit-core-1.1.8.Final-sources.jar"/>
-	<classpathentry kind="lib" path="/portal-master/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="/portal-master/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar" sourcepath="/Users/arbo/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/portal-master"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/portal-search"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/arquillian-extension-junit-bridge"/>
@@ -26,5 +26,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/journal-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/journal-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/calendar-test"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/portal-search-test"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/portal-search-facet"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

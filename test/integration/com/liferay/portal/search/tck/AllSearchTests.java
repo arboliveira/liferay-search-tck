@@ -23,9 +23,9 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses( {
-	com.liferay.portal.kernel.search.FacetedSearcherTest.class,
-	com.liferay.portal.kernel.search.facet.MultiValueFacetTest.class,
-	com.liferay.portal.kernel.search.facet.ScopeFacetTest.class,
+	com.liferay.portal.search.tck.searcher.AssetTagNamesFacetTest.class,
+	com.liferay.portal.search.tck.searcher.FacetedSearcherTest.class,
+	com.liferay.portal.search.tck.searcher.ScopeFacetTest.class,
 	com.liferay.portal.search.BackupAndRestoreIndexesTest.class,
 	com.liferay.portal.search.DocumentImplTest.class,
 	com.liferay.portal.search.IndexerRegistryUtilTest.class,
