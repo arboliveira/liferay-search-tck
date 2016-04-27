@@ -7,6 +7,9 @@ set -o errexit ; set -o nounset
 function ant_deploy()
 {
 	subdir=$1
+
+	figlet -f mini ant deploy $1 
+
 	cd ${LIFERAY_PORTAL_DIR}/$subdir
 	ant deploy install-portal-snapshot
 }
@@ -14,6 +17,9 @@ function ant_deploy()
 function gradle_deploy()
 {
 	subdir=$1
+
+	figlet -f mini gradle deploy $1 
+
 	cd ${LIFERAY_PORTAL_DIR}/$subdir
 	${LIFERAY_PORTAL_DIR}/gradlew deploy
 }
@@ -22,6 +28,9 @@ function test_prepare()
 {
 	subdir=$1
 	tests=$2
+
+	figlet -f mini test prepare $1 
+
 	cd ${LIFERAY_PORTAL_DIR}/$subdir
 	${LIFERAY_PORTAL_DIR}/gradlew testIntegration --tests $tests || { 
 		RETURN_CODE=$?
@@ -36,6 +45,8 @@ ant_deploy portal-test
 ant_deploy portal-test-integration
 
 gradle_deploy modules/apps/forms-and-workflow/dynamic-data-mapping/dynamic-data-mapping-test-util
+
+test_prepare modules/apps/foundation/portal-search/portal-search-test com.liferay.portal.search.searcher.test.FacetedSearcherTest.testSearchByKeywords
 
 test_prepare modules/apps/collaboration/bookmarks/bookmarks-test com.liferay.bookmarks.search.test.BookmarksEntrySearchTest.testSearchBaseModel
 test_prepare modules/apps/collaboration/document-library/document-library-test com.liferay.document.library.search.test.DLFileEntrySearchTest.testOrderByDDMTextField
