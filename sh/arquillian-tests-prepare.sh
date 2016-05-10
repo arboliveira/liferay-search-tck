@@ -46,7 +46,7 @@ ant_deploy portal-test-integration
 
 gradle_deploy modules/apps/forms-and-workflow/dynamic-data-mapping/dynamic-data-mapping-test-util
 
-test_prepare modules/apps/foundation/portal-search/portal-search-test com.liferay.portal.search.searcher.test.FacetedSearcherTest.testSearchByKeywords
+test_prepare modules/apps/foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.FacetedSearcherTest.testSearchByKeywords
 
 test_prepare modules/apps/collaboration/bookmarks/bookmarks-test com.liferay.bookmarks.search.test.BookmarksEntrySearchTest.testSearchBaseModel
 test_prepare modules/apps/collaboration/document-library/document-library-test com.liferay.document.library.search.test.DLFileEntrySearchTest.testOrderByDDMTextField
