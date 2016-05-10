@@ -20,7 +20,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 /**
  * @see search-tck/sh/ant-deploy-arquillian-tests.sh
- * 
+ *
  * @author André de Oliveira
  */
 @RunWith(Suite.class)
