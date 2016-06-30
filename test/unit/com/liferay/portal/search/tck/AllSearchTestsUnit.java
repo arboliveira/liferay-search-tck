@@ -23,12 +23,12 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses( {
+	com.liferay.document.library.repository.cmis.search.BaseCmisSearchQueryBuilderTest.class,
 	com.liferay.document.library.search.SearchResultUtilDLFileEntryTest.class,
 	com.liferay.journal.search.SearchResultUtilJournalArticleTest.class,
 	com.liferay.message.boards.comment.search.SearchResultUtilMBMessageTest.class,
 	com.liferay.portal.kernel.search.BaseIndexerGetFullQueryTest.class,
 	com.liferay.portal.kernel.search.BaseIndexerGetSiteGroupIdTest.class,
-//	com.liferay.portal.search.internal.facet.FacetManagerImplTest.class,
 	com.liferay.portal.search.internal.result.SearchResultUtilTest.class
 })
 public class AllSearchTestsUnit {
