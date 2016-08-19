@@ -29,5 +29,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/portal-search-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/portal-search-facet"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/document-library-repository-cmis-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/message-boards-comment"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/blogs-test"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

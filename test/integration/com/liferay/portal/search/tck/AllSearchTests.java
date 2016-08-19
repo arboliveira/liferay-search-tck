@@ -33,8 +33,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	com.liferay.portal.search.SearchPaginationTest.class,
 	com.liferay.portlet.asset.search.AssetCategorySearchTest.class,
 	com.liferay.portlet.asset.search.AssetVocabularySearchTest.class,
-	com.liferay.portlet.blogs.asset.BlogsEntryAssetSearchTest.class,
-	com.liferay.portlet.blogs.search.BlogsEntrySearchTest.class,
+	com.liferay.blogs.asset.test.BlogsEntryAssetSearchTest.class,
+	com.liferay.blogs.search.test.BlogsEntrySearchTest.class,
 	com.liferay.portlet.documentlibrary.search.DLFolderSearchTest.class,
 	com.liferay.portlet.messageboards.search.MBMessageSearchTest.class,
 	com.liferay.portlet.usersadmin.util.UserIndexerTest.class
