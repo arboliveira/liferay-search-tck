@@ -1,7 +1,0 @@
-Bundle-Name: Liferay Search Test Compatibility Kit: Bookmarks
-Bundle-SymbolicName: com.liferay.portal.search.tck.bookmarks
-Bundle-Version: 1.0.0
-Include-Resource:\
-	/Users/arbo/git/liferay-portal/modules/apps/bookmarks/bookmarks-test/classes,\
-	/Users/arbo/git/liferay-portal/modules/apps/bookmarks/bookmarks-test/test-classes/integration,\
-	/Users/arbo/git/liferay-portal/portal-impl/test/test-portal-impl.properties

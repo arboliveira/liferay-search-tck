@@ -1,7 +1,0 @@
-Bundle-Name: Liferay Search Test Compatibility Kit: Document Library
-Bundle-SymbolicName: com.liferay.portal.search.tck.document.library
-Bundle-Version: 1.0.0
-Include-Resource:\
-	/Users/arbo/git/liferay-portal/modules/apps/document-library/document-library-test/classes,\
-	/Users/arbo/git/liferay-portal/modules/apps/document-library/document-library-test/test-classes/integration,\
-	/Users/arbo/git/liferay-portal/portal-impl/test/test-portal-impl.properties

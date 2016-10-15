@@ -25,18 +25,23 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses( {
-	com.liferay.portal.search.tck.bookmarks.BookmarksEntrySearchTest.class,
-	com.liferay.portal.search.tck.bookmarks.BookmarksFolderSearchTest.class,
-	com.liferay.portal.search.tck.calendar.CalendarSearcherTest.class,
-	com.liferay.portal.search.tck.document.library.DLFileEntrySearchTest.class,
-	com.liferay.portal.search.tck.dynamic.data.lists.DDLRecordSearchTest.class,
-	com.liferay.portal.search.tck.journal.JournalArticleAssetSearchTest.class,
-	com.liferay.portal.search.tck.journal.JournalArticleIndexableTest.class,
-	com.liferay.portal.search.tck.journal.JournalArticleIndexVersionsTest.class,
-	com.liferay.portal.search.tck.journal.JournalArticleSearchTest.class,
-	com.liferay.portal.search.tck.journal.JournalFolderSearchTest.class,
-	com.liferay.portal.search.tck.journal.JournalIndexerTest.class,
-	com.liferay.portal.search.tck.wiki.WikiPageSearchTest.class
+	com.liferay.bookmarks.search.test.BookmarksEntrySearchTest.class,
+	com.liferay.bookmarks.search.test.BookmarksFolderSearchTest.class,
+
+	com.liferay.calendar.search.test.CalendarSearcherTest.class,
+
+	com.liferay.document.library.search.test.DLFileEntrySearchTest.class,
+
+	com.liferay.dynamic.data.lists.search.test.DDLRecordSearchTest.class,
+
+	com.liferay.journal.asset.test.JournalArticleAssetSearchTest.class,
+	com.liferay.journal.search.test.JournalArticleIndexableTest.class,
+	com.liferay.journal.search.test.JournalArticleSearchTest.class,
+	com.liferay.journal.search.test.JournalFolderSearchTest.class,
+	com.liferay.journal.search.test.JournalIndexerTest.class,
+	com.liferay.journal.service.test.JournalArticleIndexVersionsTest.class,
+
+	com.liferay.wiki.search.test.WikiPageSearchTest.class
 })
 public class AllSearchTestsArquillian {
 
