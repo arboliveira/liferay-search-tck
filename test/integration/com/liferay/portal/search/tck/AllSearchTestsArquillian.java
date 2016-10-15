@@ -19,7 +19,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 /**
- * @see search-tck/sh/ant-deploy-arquillian-tests.sh
+ * @see search-tck/sh/arquillian-search-tests-run-all.sh
  *
  * @author André de Oliveira
  */
