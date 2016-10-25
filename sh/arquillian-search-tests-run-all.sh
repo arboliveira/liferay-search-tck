@@ -92,9 +92,12 @@ function test_run()
 	subdir=$1
 	tests=$2
 
-	figlet -f mini test prepare $1 || true
+	figlet -f digital RUN $1 || true
 
 	cd ${LIFERAY_PORTAL_DIR}/$subdir
+
+	mv settings.gradle settings.gradle.ORIGINAL || true
+	mv ../settings.gradle ../settings.gradle.ORIGINAL || true
 
 	${LIFERAY_PORTAL_DIR}/gradlew testIntegration --tests $tests --stacktrace || { 
 		RETURN_CODE=$?
@@ -102,7 +105,10 @@ function test_run()
 		echo "*** IGNORING BOGUS FAILURE & MOVING ON! :-)"
 	}
 
-	open build/reports/tests/testIntegration/index.html
+	mv settings.gradle.ORIGINAL settings.gradle || true
+	mv ../settings.gradle.ORIGINAL ../settings.gradle || true	
+
+	open build/reports/tests/testIntegration/index.html || true
 }
 
 
