@@ -30,5 +30,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/message-boards-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/portal-search-test"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/wiki-test"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/users-admin-test"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

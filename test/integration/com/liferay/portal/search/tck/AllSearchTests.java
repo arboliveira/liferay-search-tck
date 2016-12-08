@@ -23,21 +23,17 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses( {
-	com.liferay.portal.search.tck.searcher.AssetTagNamesFacetTest.class,
-	com.liferay.portal.search.tck.searcher.FacetedSearcherTest.class,
-	com.liferay.portal.search.tck.searcher.ModifiedFacetTest.class,
-	com.liferay.portal.search.tck.searcher.ScopeFacetTest.class,
 	com.liferay.portal.search.BackupAndRestoreIndexesTest.class,
 	com.liferay.portal.search.DocumentImplTest.class,
 	com.liferay.portal.search.IndexerRegistryUtilTest.class,
 	com.liferay.portal.search.SearchPaginationTest.class,
+	com.liferay.portal.service.OrganizationLocalServiceTest.class,
 	com.liferay.portlet.asset.search.AssetCategorySearchTest.class,
 	com.liferay.portlet.asset.search.AssetVocabularySearchTest.class,
-	com.liferay.blogs.asset.test.BlogsEntryAssetSearchTest.class,
-	com.liferay.blogs.search.test.BlogsEntrySearchTest.class,
+	com.liferay.portlet.asset.service.AssetVocabularyServiceTest.class,
 	com.liferay.portlet.documentlibrary.search.DLFolderSearchTest.class,
-	com.liferay.portlet.messageboards.search.MBMessageSearchTest.class,
-	com.liferay.portlet.usersadmin.util.UserIndexerTest.class
+	com.liferay.portlet.documentlibrary.service.DLAppServiceTest.class,
+	com.liferay.portlet.messageboards.search.MBMessageSearchTest.class
 })
 public class AllSearchTests {
 
