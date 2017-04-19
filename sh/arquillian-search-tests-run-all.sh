@@ -12,14 +12,16 @@ JOURNAL_IN_SPLITREPO=false
 #
 function run_all_tests()
 {
-test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.AssetTagNamesFacetTest
+test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.AssetTagNamesFacetedSearcherTest
 test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.FacetedSearcherTest
-test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.ModifiedFacetTest
-test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.ScopeFacetTest
+test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.ModifiedFacetedSearcherTest
+test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.ScopeFacetedSearcherTest
 test_run foundation/portal-search/portal-search-test com.liferay.portal.search.indexer.test.IndexerPostProcessorRegistryTest
 test_run foundation/portal-search/portal-search-test com.liferay.portal.search.internal.test.SearchPermissionCheckerTest
+test_run foundation/portal-search/portal-search-test com.liferay.expando.search.test.ExpandoSearchTest
 
 test_run foundation/users-admin/users-admin-test com.liferay.users.admin.indexer.test.UserIndexerTest
+test_run foundation/users-admin/users-admin-test com.liferay.users.admin.indexer.test.OrganizationIndexerTest
 
 test_run collaboration/blogs/blogs-test com.liferay.blogs.asset.test.BlogsEntryAssetSearchTest
 test_run collaboration/blogs/blogs-test com.liferay.blogs.search.test.BlogsEntrySearchTest
@@ -50,16 +52,21 @@ test_run collaboration/wiki/wiki-test com.liferay.wiki.search.test.WikiPageTitle
 
 function run_some_tests()
 {
+# test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.FacetedSearcherTest
 
-# test_run web-experience/journal/journal-test com.liferay.journal.search.test.JournalIndexerTest
+# test_run foundation/users-admin/users-admin-test com.liferay.users.admin.indexer.test.UserIndexerTest
 
-# test_run web-experience/journal/journal-test com.liferay.journal.search.test.JournalArticleSearchTest.testSearchStatus
+# test_run foundation/portal-search/portal-search-test com.liferay.expando.search.test.ExpandoSearchTest.testKeyword*
 
-# test_run web-experience/journal/journal-test com.liferay.journal.asset.test.JournalArticleAssetSearchTest.testOrderByTitle*
+# test_run_journal com.liferay.journal.search.test.JournalIndexerTest
 
-# test_run_splitrepo com-liferay-journal/journal-test com.liferay.journal.search.test.JournalIndexerTest
+# test_run_journal com.liferay.journal.search.test.JournalArticleSearchTest.testSearchStatus
 
-# test_run_splitrepo com-liferay-journal/journal-test *.JournalFolderLocalServiceTest
+# test_run_journal com.liferay.journal.asset.test.JournalArticleAssetSearchTest.testOrderByTitle*
+
+# test_run_journal com.liferay.journal.search.test.JournalIndexerTest
+
+# test_run_journal *.JournalFolderLocalServiceTest
 :	
 }
 
