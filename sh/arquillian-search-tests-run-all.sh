@@ -5,6 +5,7 @@ set -o errexit ; set -o nounset
 RUN_ALL_TESTS=true
 REDEPLOY_ALL_DEPENDENCIES=false
 JOURNAL_IN_SPLITREPO=false
+DDM_IN_SPLITREPO=false
 
 
 #
@@ -12,67 +13,94 @@ JOURNAL_IN_SPLITREPO=false
 #
 function run_all_tests()
 {
-test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.AssetTagNamesFacetedSearcherTest
-test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.FacetedSearcherTest
-test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.ModifiedFacetedSearcherTest
-test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.ScopeFacetedSearcherTest
-test_run foundation/portal-search/portal-search-test com.liferay.portal.search.indexer.test.IndexerPostProcessorRegistryTest
-test_run foundation/portal-search/portal-search-test com.liferay.portal.search.internal.test.SearchPermissionCheckerTest
-test_run foundation/portal-search/portal-search-test com.liferay.expando.search.test.ExpandoSearchTest
+test_run foundation/portal-search/portal-search-test \
+	com.liferay.portal.search.document.test.DocumentTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.AssetEntriesFacetedSearcherTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.AssetEntriesStatusFacetedSearcherTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.AssetEntriesVersionFacetedSearcherTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.AssetTagNamesFacetedSearcherTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.CalendarFacetedSearcherTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.FacetedSearcherTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.ModifiedFacetedSearcherTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.PermissionFilterFacetedSearcherTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.ScopeFacetedSearcherTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.SearchPermissionCheckerFacetedSearcherTest \
+	com.liferay.portal.search.facet.faceted.searcher.test.UserFacetedSearcherTest \
+	com.liferay.portal.search.indexer.test.IndexerPostProcessorRegistryTest \
+	com.liferay.portal.search.internal.test.SearchPermissionCheckerTest \
+	com.liferay.portal.search.pagination.test.SearchPaginationTest \
+	com.liferay.expando.search.test.ExpandoSearchTest
 
-test_run foundation/users-admin/users-admin-test com.liferay.users.admin.indexer.test.UserIndexerTest
-test_run foundation/users-admin/users-admin-test com.liferay.users.admin.indexer.test.OrganizationIndexerTest
+test_run foundation/user-groups-admin/user-groups-admin-test \
+	com.liferay.user.groups.admin.web.internal.search.test.UserGroupIndexerTest 
 
-test_run collaboration/blogs/blogs-test com.liferay.blogs.asset.test.BlogsEntryAssetSearchTest
-test_run collaboration/blogs/blogs-test com.liferay.blogs.search.test.BlogsEntrySearchTest
-test_run collaboration/blogs/blogs-test com.liferay.blogs.service.test.BlogsEntryStatusTransitionTest
+test_run foundation/users-admin/users-admin-test \
+	com.liferay.users.admin.indexer.test.UserIndexerTest \
+	com.liferay.users.admin.indexer.test.OrganizationIndexerTest
 
-test_run collaboration/bookmarks/bookmarks-test com.liferay.bookmarks.search.test.BookmarksEntrySearchTest 
-test_run collaboration/bookmarks/bookmarks-test com.liferay.bookmarks.search.test.BookmarksFolderSearchTest
-test_run collaboration/bookmarks/bookmarks-test com.liferay.bookmarks.service.test.BookmarksFolderServiceTest
+test_run collaboration/blogs/blogs-test \
+	com.liferay.blogs.asset.test.BlogsEntryAssetSearchTest \
+	com.liferay.blogs.search.test.BlogsEntrySearchTest \
+	com.liferay.blogs.service.test.BlogsEntryStatusTransitionTest
 
-test_run forms-and-workflow/calendar/calendar-test com.liferay.calendar.search.test.CalendarBookingIndexerTest
-test_run forms-and-workflow/calendar/calendar-test com.liferay.calendar.search.test.CalendarSearcherTest
+test_run collaboration/bookmarks/bookmarks-test \
+	com.liferay.bookmarks.search.test.BookmarksEntrySearchTest \
+	com.liferay.bookmarks.search.test.BookmarksFolderSearchTest \
+	com.liferay.bookmarks.service.test.BookmarksFolderServiceTest
 
-test_run collaboration/document-library/document-library-test com.liferay.document.library.search.test.DLFileEntrySearchTest
+test_run collaboration/wiki/wiki-test \
+	com.liferay.wiki.search.test.WikiPageSearchTest \
+	com.liferay.wiki.search.test.WikiPageTitleSearcherTest
 
-test_run forms-and-workflow/dynamic-data-lists/dynamic-data-lists-test com.liferay.dynamic.data.lists.search.test.DDLRecordSearchTest
+test_run forms-and-workflow/calendar/calendar-test \
+	com.liferay.calendar.search.test.CalendarBookingIndexerTest \
+	com.liferay.calendar.search.test.CalendarSearcherTest
 
-test_run_journal com.liferay.journal.asset.test.JournalArticleAssetSearchTest
-test_run_journal com.liferay.journal.search.test.JournalArticleIndexableTest
-test_run_journal com.liferay.journal.search.test.JournalArticleIndexerLocalizedContentTest
-test_run_journal com.liferay.journal.search.test.JournalArticleSearchTest
-test_run_journal com.liferay.journal.search.test.JournalFolderSearchTest
-test_run_journal com.liferay.journal.search.test.JournalIndexerTest
-test_run_journal com.liferay.journal.service.test.JournalArticleIndexVersionsTest
+test_run collaboration/document-library/document-library-test \
+	com.liferay.document.library.search.test.DLFileEntrySearchTest
 
-test_run collaboration/wiki/wiki-test com.liferay.wiki.search.test.WikiPageSearchTest
-test_run collaboration/wiki/wiki-test com.liferay.wiki.search.test.WikiPageTitleSearcherTest
+test_run forms-and-workflow/dynamic-data-lists/dynamic-data-lists-test \
+	com.liferay.dynamic.data.lists.search.test.DDLRecordSearchTest
+
+test_run web-experience/asset/asset-test \
+	com.liferay.asset.search.test.*Test \
+	com.liferay.asset.util.test.AssetUtilTest
+
+test_run_journal \
+	com.liferay.journal.asset.test.JournalArticleAssetSearchTest \
+	com.liferay.journal.search.test.JournalArticleIndexableTest \
+	com.liferay.journal.search.test.JournalArticleIndexerLocalizedContentTest \
+	com.liferay.journal.search.test.JournalArticleSearchTest \
+	com.liferay.journal.search.test.JournalFolderSearchTest \
+	com.liferay.journal.search.test.JournalIndexerTest \
+	com.liferay.journal.service.test.JournalArticleIndexVersionsTest
 }
 
 function run_some_tests()
 {
-# test_run foundation/portal-search/portal-search-test com.liferay.portal.search.facet.faceted.searcher.test.FacetedSearcherTest
+#	
 
-# test_run foundation/users-admin/users-admin-test com.liferay.users.admin.indexer.test.UserIndexerTest
+if [ 0 = true ]
+then
 
-# test_run foundation/portal-search/portal-search-test com.liferay.expando.search.test.ExpandoSearchTest.testKeyword*
+test_run adaptive-media/adaptive-media-image-impl-test \
+	com.liferay.adaptive.media.image.internal.test.AdaptiveMediaImageDeleteConfigurationTest
 
-# test_run_journal com.liferay.journal.search.test.JournalIndexerTest
+# this test creates a DL file and never removes it -- search engine is polluted
+test_run collaboration/document-library/document-library-test \
+	com.liferay.document.library.webdav.test.WebDAVLitmusBasicTest
 
-# test_run_journal com.liferay.journal.search.test.JournalArticleSearchTest.testSearchStatus
+#
+:
+fi
 
-# test_run_journal com.liferay.journal.asset.test.JournalArticleAssetSearchTest.testOrderByTitle*
-
-# test_run_journal com.liferay.journal.search.test.JournalIndexerTest
-
-# test_run_journal *.JournalFolderLocalServiceTest
+#
 :	
 }
 
 function ant_deploy()
 {
-	subdir=$1
+	local subdir=$1
 
 	figlet -f mini ant deploy $1 || true
 
@@ -82,7 +110,7 @@ function ant_deploy()
 
 function gradle_deploy()
 {
-	subdir=$1
+	local subdir=$1
 
 	figlet -f mini gradle deploy $1 || true
 
@@ -92,9 +120,10 @@ function gradle_deploy()
 
 function do_test_run()
 {
-	directory=$1
-	tests=$2
-	no_settings_gradle=$3
+	local directory=$1
+	local no_settings_gradle=$2
+	shift 2
+	local tests=( "$@" ) 
 
 	figlet -f digital RUN $directory || true
 
@@ -106,7 +135,13 @@ function do_test_run()
 		mv ../settings.gradle ../settings.gradle.ORIGINAL || true
 	fi
 
-	${LIFERAY_PORTAL_DIR}/gradlew testIntegration --tests $tests --stacktrace || { 
+	local gwtests=()
+	for test in "${tests[@]}"; do
+		gwtests+=("--tests")
+		gwtests+=($test)
+	done
+
+	${LIFERAY_PORTAL_DIR}/gradlew testIntegration --stacktrace "${gwtests[@]}" || { 
 		RETURN_CODE=$?
 		echo ${RETURN_CODE}
 		echo "*** IGNORING BOGUS FAILURE & MOVING ON! :-)"
@@ -123,38 +158,57 @@ function do_test_run()
 
 function test_run()
 {
-	subdir=$1
-	tests=$2
+	local subdir=$1
+	shift 1
+	local tests=( "$@" ) 
 
-	directory=${LIFERAY_PORTAL_DIR}/modules/apps/$subdir
-	no_settings_gradle=true
+	local directory=${LIFERAY_PORTAL_DIR}/modules/apps/$subdir
+	local no_settings_gradle=true
 
-	do_test_run $directory $tests $no_settings_gradle
+	do_test_run $directory $no_settings_gradle "${tests[@]}"
 }
 
 function test_run_splitrepo()
 {
-	splitrepo=$1
-	tests=$2
+	local splitrepo=$1
+	shift 1
+	local tests=( "$@" ) 
 
-	directory=${LIFERAY_PORTAL_DIR}/../$splitrepo
-	no_settings_gradle=false
+	local directory=${LIFERAY_PORTAL_DIR}/../$splitrepo
+	local no_settings_gradle=false
 
-	do_test_run $directory $tests $no_settings_gradle
+	do_test_run $directory $no_settings_gradle "${tests[@]}"
 }
 
 function test_run_journal()
 {
-	tests=$1
+	local tests=( "$@" ) 
 
 if [ "$JOURNAL_IN_SPLITREPO" = true ]
 then
 
-test_run_splitrepo com-liferay-journal/journal-test $tests
+test_run_splitrepo com-liferay-journal/journal-test "${tests[@]}"
 
 else
 
-test_run web-experience/journal/journal-test $tests
+test_run web-experience/journal/journal-test "${tests[@]}"
+
+fi
+
+}
+
+function test_run_ddm()
+{
+	local tests=( "$@" ) 
+
+if [ "$DDM_IN_SPLITREPO" = true ]
+then
+
+test_run_splitrepo com-liferay-dynamic-data-mapping/dynamic-data-mapping-test "${tests[@]}"
+
+else
+
+test_run forms-and-workflow/dynamic-data-mapping/dynamic-data-mapping-test "${tests[@]}"
 
 fi
 
