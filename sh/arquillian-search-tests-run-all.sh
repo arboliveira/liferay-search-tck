@@ -13,67 +13,67 @@ DDM_IN_SPLITREPO=false
 #
 function run_all_tests()
 {
+# portal-search-test
+
 test_run foundation/portal-search/portal-search-test \
-	com.liferay.portal.search.document.test.DocumentTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.AssetEntriesFacetedSearcherTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.AssetEntriesStatusFacetedSearcherTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.AssetEntriesVersionFacetedSearcherTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.AssetTagNamesFacetedSearcherTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.CalendarFacetedSearcherTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.FacetedSearcherTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.ModifiedFacetedSearcherTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.PermissionFilterFacetedSearcherTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.ScopeFacetedSearcherTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.SearchPermissionCheckerFacetedSearcherTest \
-	com.liferay.portal.search.facet.faceted.searcher.test.UserFacetedSearcherTest \
-	com.liferay.portal.search.indexer.test.IndexerPostProcessorRegistryTest \
-	com.liferay.portal.search.internal.test.SearchPermissionCheckerTest \
-	com.liferay.portal.search.pagination.test.SearchPaginationTest \
-	com.liferay.expando.search.test.ExpandoSearchTest
+	*Test
 
-test_run foundation/user-groups-admin/user-groups-admin-test \
-	com.liferay.user.groups.admin.web.internal.search.test.UserGroupIndexerTest 
-
-test_run foundation/users-admin/users-admin-test \
-	com.liferay.users.admin.indexer.test.UserIndexerTest \
-	com.liferay.users.admin.indexer.test.OrganizationIndexerTest
-
-test_run collaboration/blogs/blogs-test \
-	com.liferay.blogs.asset.test.BlogsEntryAssetSearchTest \
-	com.liferay.blogs.search.test.BlogsEntrySearchTest \
-	com.liferay.blogs.service.test.BlogsEntryStatusTransitionTest
-
-test_run collaboration/bookmarks/bookmarks-test \
-	com.liferay.bookmarks.search.test.BookmarksEntrySearchTest \
-	com.liferay.bookmarks.search.test.BookmarksFolderSearchTest \
-	com.liferay.bookmarks.service.test.BookmarksFolderServiceTest
-
-test_run collaboration/wiki/wiki-test \
-	com.liferay.wiki.search.test.WikiPageSearchTest \
-	com.liferay.wiki.search.test.WikiPageTitleSearcherTest
-
-test_run forms-and-workflow/calendar/calendar-test \
-	com.liferay.calendar.search.test.CalendarBookingIndexerTest \
-	com.liferay.calendar.search.test.CalendarSearcherTest
+# Highest coverage of Search
 
 test_run collaboration/document-library/document-library-test \
-	com.liferay.document.library.search.test.DLFileEntrySearchTest
+	com.liferay.document.library.search.test.*Test \
+	com.liferay.document.library.trash.test.DLFileEntryTrashHandlerTest \
+	com.liferay.document.library.trash.test.DLFolderTrashHandlerTest 
 
-test_run forms-and-workflow/dynamic-data-lists/dynamic-data-lists-test \
-	com.liferay.dynamic.data.lists.search.test.DDLRecordSearchTest
+test_run forms-and-workflow/calendar/calendar-test \
+	com.liferay.calendar.search.test.*Test
+
+test_run foundation/users-admin/users-admin-test \
+	com.liferay.users.admin.indexer.test.*Test
 
 test_run web-experience/asset/asset-test \
 	com.liferay.asset.search.test.*Test \
+	com.liferay.asset.service.test.AssetVocabularyServiceTest \
 	com.liferay.asset.util.test.AssetUtilTest
 
 test_run_journal \
 	com.liferay.journal.asset.test.JournalArticleAssetSearchTest \
-	com.liferay.journal.search.test.JournalArticleIndexableTest \
-	com.liferay.journal.search.test.JournalArticleIndexerLocalizedContentTest \
-	com.liferay.journal.search.test.JournalArticleSearchTest \
-	com.liferay.journal.search.test.JournalFolderSearchTest \
-	com.liferay.journal.search.test.JournalIndexerTest \
-	com.liferay.journal.service.test.JournalArticleIndexVersionsTest
+	com.liferay.journal.search.test.*Test \
+	com.liferay.journal.service.test.JournalArticleIndexVersionsTest \
+	com.liferay.journal.service.test.JournalArticleScheduledTest \
+	com.liferay.journal.trash.test.JournalArticleTrashHandlerTest \
+	com.liferay.journal.trash.test.JournalFolderTrashHandlerTest
+
+# All other tests using Search in some capacity
+
+test_run collaboration/blogs/blogs-test \
+	com.liferay.blogs.asset.test.BlogsEntryAssetSearchTest \
+	com.liferay.blogs.search.test.*Test \
+	com.liferay.blogs.service.test.BlogsEntryStatusTransitionTest \
+	com.liferay.blogs.service.test.BlogsEntryTrashHandlerTest
+
+test_run collaboration/bookmarks/bookmarks-test \
+	com.liferay.bookmarks.search.test.*Test \
+	com.liferay.bookmarks.service.test.BookmarksFolderServiceTest \
+	com.liferay.bookmarks.trash.test.BookmarksEntryTrashHandlerTest \
+	com.liferay.bookmarks.trash.test.BookmarksFolderTrashHandlerTest
+
+test_run collaboration/message-boards/message-boards-test \
+	com.liferay.message.boards.search.test.*Test \
+	com.liferay.message.boards.trash.test.MBThreadTrashHandlerTest
+
+test_run collaboration/wiki/wiki-test \
+	com.liferay.wiki.search.test.*Test \
+	com.liferay.wiki.trash.test.WikiPageTrashHandlerTest
+
+test_run forms-and-workflow/dynamic-data-lists/dynamic-data-lists-test \
+	com.liferay.dynamic.data.lists.search.test.*Test
+
+test_run foundation/user-groups-admin/user-groups-admin-test \
+	com.liferay.user.groups.admin.web.internal.search.test.*Test 
+
+test_run web-experience/asset/asset-publisher-test \
+	com.liferay.asset.publisher.lar.test.AssetPublisherExportImportTest
 }
 
 function run_some_tests()
