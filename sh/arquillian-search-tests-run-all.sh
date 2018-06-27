@@ -5,7 +5,6 @@ set -o errexit ; set -o nounset
 RUN_ALL_TESTS=true
 REDEPLOY_ALL_DEPENDENCIES=false
 JOURNAL_IN_SPLITREPO=false
-DDM_IN_SPLITREPO=false
 
 
 #
@@ -15,23 +14,23 @@ function run_all_tests()
 {
 # portal-search-test
 
-test_run foundation/portal-search/portal-search-test \
+test_run portal-search/portal-search-test \
 	*Test
 
 # Highest coverage of Search
 
-test_run collaboration/document-library/document-library-test \
+test_run document-library/document-library-test \
 	com.liferay.document.library.search.test.*Test \
 	com.liferay.document.library.trash.test.DLFileEntryTrashHandlerTest \
 	com.liferay.document.library.trash.test.DLFolderTrashHandlerTest 
 
-test_run forms-and-workflow/calendar/calendar-test \
+test_run calendar/calendar-test \
 	com.liferay.calendar.search.test.*Test
 
-test_run foundation/users-admin/users-admin-test \
+test_run users-admin/users-admin-test \
 	com.liferay.users.admin.indexer.test.*Test
 
-test_run web-experience/asset/asset-test \
+test_run asset/asset-test \
 	com.liferay.asset.search.test.*Test \
 	com.liferay.asset.service.test.AssetVocabularyServiceTest \
 	com.liferay.asset.util.test.AssetUtilTest
@@ -39,6 +38,7 @@ test_run web-experience/asset/asset-test \
 test_run_journal \
 	com.liferay.journal.asset.test.JournalArticleAssetSearchTest \
 	com.liferay.journal.search.test.*Test \
+	com.liferay.journal.service.test.JournalArticleExpirationTest \
 	com.liferay.journal.service.test.JournalArticleIndexVersionsTest \
 	com.liferay.journal.service.test.JournalArticleScheduledTest \
 	com.liferay.journal.trash.test.JournalArticleTrashHandlerTest \
@@ -46,33 +46,33 @@ test_run_journal \
 
 # All other tests using Search in some capacity
 
-test_run collaboration/blogs/blogs-test \
+test_run blogs/blogs-test \
 	com.liferay.blogs.asset.test.BlogsEntryAssetSearchTest \
 	com.liferay.blogs.search.test.*Test \
 	com.liferay.blogs.service.test.BlogsEntryStatusTransitionTest \
 	com.liferay.blogs.service.test.BlogsEntryTrashHandlerTest
 
-test_run collaboration/bookmarks/bookmarks-test \
+test_run bookmarks/bookmarks-test \
 	com.liferay.bookmarks.search.test.*Test \
 	com.liferay.bookmarks.service.test.BookmarksFolderServiceTest \
 	com.liferay.bookmarks.trash.test.BookmarksEntryTrashHandlerTest \
 	com.liferay.bookmarks.trash.test.BookmarksFolderTrashHandlerTest
 
-test_run collaboration/message-boards/message-boards-test \
+test_run message-boards/message-boards-test \
 	com.liferay.message.boards.search.test.*Test \
 	com.liferay.message.boards.trash.test.MBThreadTrashHandlerTest
 
-test_run collaboration/wiki/wiki-test \
+test_run wiki/wiki-test \
 	com.liferay.wiki.search.test.*Test \
 	com.liferay.wiki.trash.test.WikiPageTrashHandlerTest
 
-test_run forms-and-workflow/dynamic-data-lists/dynamic-data-lists-test \
+test_run dynamic-data-lists/dynamic-data-lists-test \
 	com.liferay.dynamic.data.lists.search.test.*Test
 
-test_run foundation/user-groups-admin/user-groups-admin-test \
+test_run user-groups-admin/user-groups-admin-test \
 	com.liferay.user.groups.admin.web.internal.search.test.*Test 
 
-test_run web-experience/asset/asset-publisher-test \
+test_run asset/asset-publisher-test \
 	com.liferay.asset.publisher.lar.test.AssetPublisherExportImportTest
 }
 
@@ -83,11 +83,9 @@ function run_some_tests()
 if [ 0 = true ]
 then
 
-test_run adaptive-media/adaptive-media-image-impl-test \
-	com.liferay.adaptive.media.image.internal.test.AdaptiveMediaImageDeleteConfigurationTest
 
 # this test creates a DL file and never removes it -- search engine is polluted
-test_run collaboration/document-library/document-library-test \
+test_run document-library/document-library-test \
 	com.liferay.document.library.webdav.test.WebDAVLitmusBasicTest
 
 #
@@ -191,24 +189,7 @@ test_run_splitrepo com-liferay-journal/journal-test "${tests[@]}"
 
 else
 
-test_run web-experience/journal/journal-test "${tests[@]}"
-
-fi
-
-}
-
-function test_run_ddm()
-{
-	local tests=( "$@" ) 
-
-if [ "$DDM_IN_SPLITREPO" = true ]
-then
-
-test_run_splitrepo com-liferay-dynamic-data-mapping/dynamic-data-mapping-test "${tests[@]}"
-
-else
-
-test_run forms-and-workflow/dynamic-data-mapping/dynamic-data-mapping-test "${tests[@]}"
+test_run journal/journal-test "${tests[@]}"
 
 fi
 
