@@ -8,7 +8,7 @@ JOURNAL_IN_SPLITREPO=false
 
 
 #
-# SEE: com.liferay.portal.search.tck.AllSearchTestsArquillian
+# SEE: https://github.com/liferay/liferay-portal/blob/19ab16500f013bcfdb9283c6567f70ee9b531ba7/test.properties#L1553-L1581
 #
 function run_all_tests()
 {
@@ -33,7 +33,10 @@ test_run users-admin/users-admin-test \
 test_run asset/asset-test \
 	com.liferay.asset.search.test.*Test \
 	com.liferay.asset.service.test.AssetVocabularyServiceTest \
-	com.liferay.asset.util.test.AssetUtilTest
+	com.liferay.asset.util.test.AssetHelperTest
+
+test_run asset/asset-categories-test \
+	*.search.test.*Test 
 
 test_run_journal \
 	com.liferay.journal.asset.test.JournalArticleAssetSearchTest \
@@ -43,6 +46,9 @@ test_run_journal \
 	com.liferay.journal.service.test.JournalArticleScheduledTest \
 	com.liferay.journal.trash.test.JournalArticleTrashHandlerTest \
 	com.liferay.journal.trash.test.JournalFolderTrashHandlerTest
+
+test_run sharing/sharing-search-test \
+	*Test
 
 # All other tests using Search in some capacity
 
@@ -74,6 +80,9 @@ test_run user-groups-admin/user-groups-admin-test \
 
 test_run asset/asset-publisher-test \
 	com.liferay.asset.publisher.lar.test.AssetPublisherExportImportTest
+
+test_run portal-workflow/portal-workflow-kaleo-test \
+	com.liferay.portal.workflow.kaleo.runtime.integration.internal.test.WorkflowTaskManagerImplTest
 }
 
 function run_some_tests()
@@ -139,7 +148,7 @@ function do_test_run()
 		gwtests+=($test)
 	done
 
-	${LIFERAY_PORTAL_DIR}/gradlew testIntegration --stacktrace "${gwtests[@]}" || { 
+	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration testIntegration --stacktrace "${gwtests[@]}" || { 
 		RETURN_CODE=$?
 		echo ${RETURN_CODE}
 		echo "*** IGNORING BOGUS FAILURE & MOVING ON! :-)"
