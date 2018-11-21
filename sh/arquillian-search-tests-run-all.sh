@@ -2,9 +2,12 @@
 
 set -o errexit ; set -o nounset
 
-RUN_ALL_TESTS=true
-REDEPLOY_ALL_DEPENDENCIES=false
-JOURNAL_IN_SPLITREPO=false
+RUN_ALL_TESTS=${RUN_ALL_TESTS:=true}
+OPEN_TEST_REPORTS_IN_BROWSER=${OPEN_TEST_REPORTS_IN_BROWSER:=false}
+APP_SERVER_PARENT_DIR=${APP_SERVER_PARENT_DIR:=""}
+REDEPLOY_ALL_DEPENDENCIES=${REDEPLOY_ALL_DEPENDENCIES:=false}
+JOURNAL_IN_SPLITREPO=${JOURNAL_IN_SPLITREPO:=false}
+
 
 
 #
@@ -148,7 +151,19 @@ function do_test_run()
 		gwtests+=($test)
 	done
 
-	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration testIntegration --stacktrace "${gwtests[@]}" || { 
+	local arg__app_server_parent_dir=()
+
+	if [ "$APP_SERVER_PARENT_DIR" = "" ]
+	then
+		arg__app_server_parent_dir=""		
+	else
+		arg__app_server_parent_dir="-Dapp.server.parent.dir=$APP_SERVER_PARENT_DIR"
+	fi
+
+	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration testIntegration --stacktrace \
+		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false "${gwtests[@]}" \
+	|| \
+	{ 
 		RETURN_CODE=$?
 		echo ${RETURN_CODE}
 		echo "*** IGNORING BOGUS FAILURE & MOVING ON! :-)"
@@ -160,7 +175,10 @@ function do_test_run()
 		mv ../settings.gradle.ORIGINAL ../settings.gradle || true	
 	fi
 
-	open build/reports/tests/testIntegration/index.html || true
+	if [ "$OPEN_TEST_REPORTS_IN_BROWSER" = true ]
+	then
+		open build/reports/tests/testIntegration/index.html || true
+	fi
 }
 
 function test_run()
