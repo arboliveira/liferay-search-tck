@@ -23,32 +23,35 @@ test_run portal-search/portal-search-test \
 # Highest coverage of Search
 
 test_run document-library/document-library-test \
-	com.liferay.document.library.search.test.*Test \
+	*.search.*Test \
 	com.liferay.document.library.trash.test.DLFileEntryTrashHandlerTest \
 	com.liferay.document.library.trash.test.DLFolderTrashHandlerTest 
 
 test_run calendar/calendar-test \
-	com.liferay.calendar.search.test.*Test
+	*.search.*Test
 
 test_run users-admin/users-admin-test \
 	com.liferay.users.admin.indexer.test.*Test
 
 test_run asset/asset-test \
-	com.liferay.asset.search.test.*Test \
+	*.search.*Test \
 	com.liferay.asset.service.test.AssetVocabularyServiceTest \
 	com.liferay.asset.util.test.AssetHelperTest
 
 test_run asset/asset-categories-test \
-	*.search.test.*Test 
+	*.search.*Test 
 
 test_run_journal \
+	*.search.*Test \
 	com.liferay.journal.asset.test.JournalArticleAssetSearchTest \
-	com.liferay.journal.search.test.*Test \
 	com.liferay.journal.service.test.JournalArticleExpirationTest \
 	com.liferay.journal.service.test.JournalArticleIndexVersionsTest \
 	com.liferay.journal.service.test.JournalArticleScheduledTest \
 	com.liferay.journal.trash.test.JournalArticleTrashHandlerTest \
 	com.liferay.journal.trash.test.JournalFolderTrashHandlerTest
+
+test_run headless-apio/structured-content/structured-content-apio-test \
+	*Test
 
 test_run sharing/sharing-search-test \
 	*Test
@@ -56,30 +59,30 @@ test_run sharing/sharing-search-test \
 # All other tests using Search in some capacity
 
 test_run blogs/blogs-test \
+	*.search.*Test \
 	com.liferay.blogs.asset.test.BlogsEntryAssetSearchTest \
-	com.liferay.blogs.search.test.*Test \
 	com.liferay.blogs.service.test.BlogsEntryStatusTransitionTest \
 	com.liferay.blogs.service.test.BlogsEntryTrashHandlerTest
 
 test_run bookmarks/bookmarks-test \
-	com.liferay.bookmarks.search.test.*Test \
+	*.search.*Test \
 	com.liferay.bookmarks.service.test.BookmarksFolderServiceTest \
 	com.liferay.bookmarks.trash.test.BookmarksEntryTrashHandlerTest \
 	com.liferay.bookmarks.trash.test.BookmarksFolderTrashHandlerTest
 
 test_run message-boards/message-boards-test \
-	com.liferay.message.boards.search.test.*Test \
+	*.search.*Test \
 	com.liferay.message.boards.trash.test.MBThreadTrashHandlerTest
 
 test_run wiki/wiki-test \
-	com.liferay.wiki.search.test.*Test \
+	*.search.*Test \
 	com.liferay.wiki.trash.test.WikiPageTrashHandlerTest
 
 test_run dynamic-data-lists/dynamic-data-lists-test \
-	com.liferay.dynamic.data.lists.search.test.*Test
+	*.search.*Test
 
 test_run user-groups-admin/user-groups-admin-test \
-	com.liferay.user.groups.admin.web.internal.search.test.*Test 
+	*.search.*Test 
 
 test_run asset/asset-publisher-test \
 	com.liferay.asset.publisher.lar.test.AssetPublisherExportImportTest
@@ -161,13 +164,16 @@ function do_test_run()
 	fi
 
 	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration testIntegration --stacktrace \
-		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false "${gwtests[@]}" \
-	|| \
-	{ 
-		RETURN_CODE=$?
-		echo ${RETURN_CODE}
-		echo "*** IGNORING BOGUS FAILURE & MOVING ON! :-)"
-	}
+		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false "${gwtests[@]}"
+
+#	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration testIntegration --stacktrace \
+#		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false "${gwtests[@]}" \
+#	|| \
+#	{ 
+#		RETURN_CODE=$?
+#		echo ${RETURN_CODE}
+#		echo "*** IGNORING BOGUS FAILURE & MOVING ON! :-)"
+#	}
 
 	if [ "$no_settings_gradle" = true ]
 	then
