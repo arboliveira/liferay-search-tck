@@ -50,9 +50,6 @@ test_run_journal \
 	com.liferay.journal.trash.test.JournalArticleTrashHandlerTest \
 	com.liferay.journal.trash.test.JournalFolderTrashHandlerTest
 
-test_run headless-apio/structured-content/structured-content-apio-test \
-	*Test
-
 test_run sharing/sharing-search-test \
 	*Test
 
