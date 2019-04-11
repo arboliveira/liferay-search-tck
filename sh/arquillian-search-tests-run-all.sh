@@ -11,7 +11,7 @@ JOURNAL_IN_SPLITREPO=${JOURNAL_IN_SPLITREPO:=false}
 
 
 #
-# SEE: https://github.com/liferay/liferay-portal/blob/19ab16500f013bcfdb9283c6567f70ee9b531ba7/test.properties#L1553-L1581
+# SEE: https://github.com/liferay/liferay-portal/blob/972f280bde2e2c69027588eb553b065a59eef3b4/test.properties#L1812-L1843
 #
 function run_all_tests()
 {
