@@ -85,7 +85,7 @@ test_run asset/asset-publisher-test \
 	com.liferay.asset.publisher.lar.test.AssetPublisherExportImportTest
 
 test_run portal-workflow/portal-workflow-kaleo-test \
-	com.liferay.portal.workflow.kaleo.runtime.integration.internal.test.WorkflowTaskManagerImplTest
+	com.liferay.portal.workflow.kaleo.internal.runtime.integration.test.WorkflowTaskManagerImplTest
 
 test_run layout/layout-test \
 	*.search.*Test
