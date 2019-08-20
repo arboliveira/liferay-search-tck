@@ -78,7 +78,7 @@ test_run wiki/wiki-test \
 test_run dynamic-data-lists/dynamic-data-lists-test \
 	*.search.*Test
 
-test_run user-groups-admin/user-groups-admin-test \
+test_run user-groups-admin/user-groups-admin-web-test \
 	*.search.*Test 
 
 test_run asset/asset-publisher-test \
