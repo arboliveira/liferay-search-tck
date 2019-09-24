@@ -89,6 +89,9 @@ test_run portal-workflow/portal-workflow-kaleo-test \
 
 test_run layout/layout-test \
 	*.search.*Test
+
+test_run data-engine/data-engine-rest-test \
+	com.liferay.data.engine.rest.resource.v1_0.test.DataDefinitionResourceTest
 }
 
 function run_some_tests()
