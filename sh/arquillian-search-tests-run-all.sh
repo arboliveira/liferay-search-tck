@@ -31,6 +31,7 @@ test_run calendar/calendar-test \
 	*.search.*Test
 
 test_run users-admin/users-admin-test \
+	*.search.*Test \
 	com.liferay.users.admin.indexer.test.*Test
 
 test_run asset/asset-test \
@@ -171,6 +172,14 @@ function do_test_run()
 
 	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration testIntegration --stacktrace \
 		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false "${gwtests[@]}"
+
+
+#	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration --quiet --stacktrace \
+#		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false
+#
+#	${LIFERAY_PORTAL_DIR}/gradlew testIntegration --stacktrace \
+#		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false "${gwtests[@]}"
+
 
 #	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration testIntegration --stacktrace \
 #		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false "${gwtests[@]}" \
