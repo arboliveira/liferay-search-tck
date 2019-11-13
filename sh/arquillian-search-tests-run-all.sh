@@ -50,6 +50,9 @@ test_run_journal \
 	com.liferay.journal.trash.test.JournalArticleTrashHandlerTest \
 	com.liferay.journal.trash.test.JournalFolderTrashHandlerTest
 
+test_run dynamic-data-mapping/dynamic-data-mapping-test \
+	*Test
+
 test_run sharing/sharing-search-test \
 	*Test
 
