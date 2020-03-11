@@ -20,27 +20,19 @@ function run_all_tests()
 test_run portal-search/portal-search-test \
 	*Test
 
-# Highest coverage of Search
-
-test_run document-library/document-library-test \
-	*.search.*Test \
-	com.liferay.document.library.trash.test.DLFileEntryTrashHandlerTest \
-	com.liferay.document.library.trash.test.DLFolderTrashHandlerTest 
-
-test_run calendar/calendar-test \
-	*.search.*Test
+# Highest coverage of Search (most critical first)
 
 test_run users-admin/users-admin-test \
 	*.search.*Test \
 	com.liferay.users.admin.indexer.test.*Test
 
-test_run asset/asset-test \
-	*.search.*Test \
-	com.liferay.asset.service.test.AssetVocabularyServiceTest \
-	com.liferay.asset.util.test.AssetHelperTest
+test_run dynamic-data-mapping/dynamic-data-mapping-test \
+	*Test
 
-test_run asset/asset-categories-test \
-	*.search.*Test 
+test_run document-library/document-library-test \
+	*.search.*Test \
+	com.liferay.document.library.trash.test.DLFileEntryTrashHandlerTest \
+	com.liferay.document.library.trash.test.DLFolderTrashHandlerTest 
 
 test_run_journal \
 	*.search.*Test \
@@ -51,13 +43,15 @@ test_run_journal \
 	com.liferay.journal.trash.test.JournalArticleTrashHandlerTest \
 	com.liferay.journal.trash.test.JournalFolderTrashHandlerTest
 
-test_run dynamic-data-mapping/dynamic-data-mapping-test \
-	*Test
+# Highest coverage of Search, part 2 (alphabetical)
 
-test_run sharing/sharing-search-test \
-	*Test
+test_run asset/asset-test \
+	*.search.*Test \
+	com.liferay.asset.service.test.AssetVocabularyServiceTest \
+	com.liferay.asset.util.test.AssetHelperTest
 
-# All other tests using Search in some capacity
+test_run asset/asset-categories-test \
+	*.search.*Test 
 
 test_run blogs/blogs-test \
 	*.search.*Test \
@@ -65,37 +59,52 @@ test_run blogs/blogs-test \
 	com.liferay.blogs.service.test.BlogsEntryStatusTransitionTest \
 	com.liferay.blogs.service.test.BlogsEntryTrashHandlerTest
 
+test_run calendar/calendar-test \
+	*.search.*Test
+
+test_run sharing/sharing-search-test \
+	*Test
+
+test_run user-groups-admin/user-groups-admin-web-test \
+	*.search.*Test 
+
+# All other tests using Search in some capacity (alphabetical)
+
+test_run asset/asset-publisher-test \
+	com.liferay.asset.publisher.lar.test.AssetPublisherExportImportTest
+
 test_run bookmarks/bookmarks-test \
 	*.search.*Test \
 	com.liferay.bookmarks.service.test.BookmarksFolderServiceTest \
 	com.liferay.bookmarks.trash.test.BookmarksEntryTrashHandlerTest \
 	com.liferay.bookmarks.trash.test.BookmarksFolderTrashHandlerTest
 
+test_run configuration-admin/configuration-admin-test \
+	*.search.*Test
+
+test_run data-engine/data-engine-rest-test \
+	com.liferay.data.engine.rest.resource.v2_0.test.DataDefinitionResourceTest
+
+test_run depot/depot-test \
+	*.search.*Test \
+
+test_run dynamic-data-lists/dynamic-data-lists-test \
+	*.search.*Test
+
+test_run layout/layout-test \
+	*.search.*Test
+
 test_run message-boards/message-boards-test \
 	*.search.*Test \
 	com.liferay.message.boards.trash.test.MBThreadTrashHandlerTest
+
+test_run portal-workflow/portal-workflow-kaleo-test \
+	com.liferay.portal.workflow.kaleo.internal.runtime.integration.test.WorkflowTaskManagerImplTest
 
 test_run wiki/wiki-test \
 	*.search.*Test \
 	com.liferay.wiki.trash.test.WikiPageTrashHandlerTest
 
-test_run dynamic-data-lists/dynamic-data-lists-test \
-	*.search.*Test
-
-test_run user-groups-admin/user-groups-admin-web-test \
-	*.search.*Test 
-
-test_run asset/asset-publisher-test \
-	com.liferay.asset.publisher.lar.test.AssetPublisherExportImportTest
-
-test_run portal-workflow/portal-workflow-kaleo-test \
-	com.liferay.portal.workflow.kaleo.internal.runtime.integration.test.WorkflowTaskManagerImplTest
-
-test_run layout/layout-test \
-	*.search.*Test
-
-test_run data-engine/data-engine-rest-test \
-	com.liferay.data.engine.rest.resource.v1_0.test.DataDefinitionResourceTest
 }
 
 function run_some_tests()
@@ -104,7 +113,6 @@ function run_some_tests()
 
 if [ 0 = true ]
 then
-
 
 # this test creates a DL file and never removes it -- search engine is polluted
 test_run document-library/document-library-test \
