@@ -27,7 +27,19 @@ test_run users-admin/users-admin-test \
 	com.liferay.users.admin.indexer.test.*Test
 
 test_run dynamic-data-mapping/dynamic-data-mapping-test \
-	*Test
+	*.search.*Test \
+	com.liferay.dynamic.data.mapping.exportimport.data.handler.test.DDMFormAdminPortletDataHandlerTest \
+	com.liferay.dynamic.data.mapping.exportimport.data.handler.test.DDMFormDisplayPortletDataHandlerTest \
+	com.liferay.dynamic.data.mapping.exportimport.data.handler.test.DDMFormInstanceRecordStagedModelDataHandlerTest \
+	com.liferay.dynamic.data.mapping.exportimport.test.DDMFormDisplayExportImportTest \
+	com.liferay.dynamic.data.mapping.expression.test.DDMExpressionFunctionTrackerTest \
+	com.liferay.dynamic.data.mapping.internal.exportimport.content.processor.test.DDMFormValuesExportImportContentProcessorTest \
+	com.liferay.dynamic.data.mapping.internal.security.permission.resource.test.DDMFormInstanceRecordModelResourcePermissionTest \
+	com.liferay.dynamic.data.mapping.service.test.*Test \
+	com.liferay.dynamic.data.mapping.staging.test.DDMFormInstanceStagingTest \
+	com.liferay.dynamic.data.mapping.storage.test.StorageAdapterTest \
+	com.liferay.dynamic.data.mapping.test.DDMStructureManagerTest \
+	com.liferay.dynamic.data.mapping.upgrade.v2_0_3.test.UpgradeDDMFormInstanceSettingsTest
 
 test_run document-library/document-library-test \
 	*.search.*Test \
