@@ -5,6 +5,7 @@ set -o errexit ; set -o nounset
 RUN_ALL_TESTS=${RUN_ALL_TESTS:=true}
 OPEN_TEST_REPORTS_IN_BROWSER=${OPEN_TEST_REPORTS_IN_BROWSER:=false}
 APP_SERVER_PARENT_DIR=${APP_SERVER_PARENT_DIR:=""}
+RECREATE_CONFIGURATIONS=${RECREATE_CONFIGURATIONS:=false}
 COMMAND_RUN_SOME_TESTS=${COMMAND_RUN_SOME_TESTS:=""}
 
 
@@ -139,16 +140,6 @@ fi
 :	
 }
 
-function gradle_deploy()
-{
-	local subdir=$1
-
-	figlet -f mini gradle deploy $1 || true
-
-	cd ${LIFERAY_PORTAL_DIR}/$subdir
-	${LIFERAY_PORTAL_DIR}/gradlew deploy
-}
-
 function do_test_run()
 {
 	local directory=$1
@@ -157,6 +148,18 @@ function do_test_run()
 	local tests=( "$@" ) 
 
 	figlet -f digital RUN $directory || true
+
+	if [ "$RECREATE_CONFIGURATIONS" = true ]
+	then
+		if [ "$APP_SERVER_PARENT_DIR" ]
+		then
+			cp com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config \
+				$APP_SERVER_PARENT_DIR/osgi/configs/
+
+			cp com.liferay.portal.search.elasticsearch6.impl-log4j-ext.xml \
+				$APP_SERVER_PARENT_DIR/osgi/log4j/
+		fi		
+	fi
 
 	cd $directory
 
