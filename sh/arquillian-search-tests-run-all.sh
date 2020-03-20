@@ -5,8 +5,6 @@ set -o errexit ; set -o nounset
 RUN_ALL_TESTS=${RUN_ALL_TESTS:=true}
 OPEN_TEST_REPORTS_IN_BROWSER=${OPEN_TEST_REPORTS_IN_BROWSER:=false}
 APP_SERVER_PARENT_DIR=${APP_SERVER_PARENT_DIR:=""}
-REDEPLOY_ALL_DEPENDENCIES=${REDEPLOY_ALL_DEPENDENCIES:=false}
-JOURNAL_IN_SPLITREPO=${JOURNAL_IN_SPLITREPO:=false}
 
 
 
@@ -46,7 +44,7 @@ test_run document-library/document-library-test \
 	com.liferay.document.library.trash.test.DLFileEntryTrashHandlerTest \
 	com.liferay.document.library.trash.test.DLFolderTrashHandlerTest 
 
-test_run_journal \
+test_run journal/journal-test \
 	*.search.*Test \
 	com.liferay.journal.asset.test.JournalArticleAssetSearchTest \
 	com.liferay.journal.service.test.JournalArticleExpirationTest \
@@ -138,16 +136,6 @@ fi
 :	
 }
 
-function ant_deploy()
-{
-	local subdir=$1
-
-	figlet -f mini ant deploy $1 || true
-
-	cd ${LIFERAY_PORTAL_DIR}/$subdir
-	ant deploy install-portal-snapshot
-}
-
 function gradle_deploy()
 {
 	local subdir=$1
@@ -234,50 +222,8 @@ function test_run()
 	do_test_run $directory $no_settings_gradle "${tests[@]}"
 }
 
-function test_run_splitrepo()
-{
-	local splitrepo=$1
-	shift 1
-	local tests=( "$@" ) 
-
-	local directory=${LIFERAY_PORTAL_DIR}/../$splitrepo
-	local no_settings_gradle=false
-
-	do_test_run $directory $no_settings_gradle "${tests[@]}"
-}
-
-function test_run_journal()
-{
-	local tests=( "$@" ) 
-
-if [ "$JOURNAL_IN_SPLITREPO" = true ]
-then
-
-test_run_splitrepo com-liferay-journal/journal-test "${tests[@]}"
-
-else
-
-test_run journal/journal-test "${tests[@]}"
-
-fi
-
-}
-
-function redeploy_all_dependencies() 
-{
-ant_deploy portal-kernel
-ant_deploy portal-test
-ant_deploy portal-test-integration
-gradle_deploy modules/apps/forms-and-workflow/dynamic-data-mapping/dynamic-data-mapping-test-util
-}
-
 function main() 
 {
-
-if [ "$REDEPLOY_ALL_DEPENDENCIES" = true ] 
-then
-	redeploy_all_dependencies
-fi
 
 if [ "$RUN_ALL_TESTS" = true ]
 then
