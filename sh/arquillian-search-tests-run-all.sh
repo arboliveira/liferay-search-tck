@@ -5,6 +5,7 @@ set -o errexit ; set -o nounset
 RUN_ALL_TESTS=${RUN_ALL_TESTS:=true}
 OPEN_TEST_REPORTS_IN_BROWSER=${OPEN_TEST_REPORTS_IN_BROWSER:=false}
 APP_SERVER_PARENT_DIR=${APP_SERVER_PARENT_DIR:=""}
+COMMAND_RUN_SOME_TESTS=${COMMAND_RUN_SOME_TESTS:=""}
 
 
 
@@ -120,6 +121,8 @@ test_run wiki/wiki-test \
 function run_some_tests()
 {
 #	
+
+eval "$COMMAND_RUN_SOME_TESTS"
 
 if [ 0 = true ]
 then
