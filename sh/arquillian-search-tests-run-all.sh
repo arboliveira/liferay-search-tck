@@ -5,7 +5,8 @@ set -o errexit ; set -o nounset
 RUN_ALL_TESTS=${RUN_ALL_TESTS:=true}
 OPEN_TEST_REPORTS_IN_BROWSER=${OPEN_TEST_REPORTS_IN_BROWSER:=false}
 APP_SERVER_PARENT_DIR=${APP_SERVER_PARENT_DIR:=""}
-RECREATE_CONFIGURATIONS=${RECREATE_CONFIGURATIONS:=false}
+RECREATE_COMPONENT_CONFIGURATIONS=${RECREATE_COMPONENT_CONFIGURATIONS:=false}
+RECREATE_LOG4J_CONFIGURATIONS=${RECREATE_LOG4J_CONFIGURATIONS:=false}
 COMMAND_RUN_SOME_TESTS=${COMMAND_RUN_SOME_TESTS:=""}
 
 
@@ -153,16 +154,26 @@ function do_test_run()
 
 	figlet -f digital RUN $directory || true
 
-	if [ "$RECREATE_CONFIGURATIONS" = true ]
+	if [ "$RECREATE_COMPONENT_CONFIGURATIONS" = true ]
 	then
 		if [ "$APP_SERVER_PARENT_DIR" ]
 		then
-			cp com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config \
+			mkdir -p \
 				$APP_SERVER_PARENT_DIR/osgi/configs/
+			cp *.config \
+				$APP_SERVER_PARENT_DIR/osgi/configs/
+		fi
+	fi
 
-			cp com.liferay.portal.search.elasticsearch6.impl-log4j-ext.xml \
+	if [ "$RECREATE_LOG4J_CONFIGURATIONS" = true ]
+	then
+		if [ "$APP_SERVER_PARENT_DIR" ]
+		then
+			mkdir -p \
 				$APP_SERVER_PARENT_DIR/osgi/log4j/
-		fi		
+			cp *-log4j-ext.xml \
+				$APP_SERVER_PARENT_DIR/osgi/log4j/
+		fi
 	fi
 
 	cd $directory
@@ -218,6 +229,8 @@ function do_test_run()
 	then
 		open build/reports/tests/testIntegration/index.html || true
 	fi
+
+	cd -
 }
 
 function test_run()
