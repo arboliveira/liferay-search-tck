@@ -110,6 +110,10 @@ test_run message-boards/message-boards-test \
 	*.search.*Test \
 	com.liferay.message.boards.trash.test.MBThreadTrashHandlerTest
 
+test_run organizations/organizations-test \
+	*.search.*Test \
+	com.liferay.organizations.service.test.OrganizationLocalServiceWhenSearchingOrganizationsTreeTest
+
 test_run portal-workflow/portal-workflow-kaleo-test \
 	com.liferay.portal.workflow.kaleo.internal.runtime.integration.test.WorkflowTaskManagerImplTest
 
