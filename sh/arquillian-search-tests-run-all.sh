@@ -44,8 +44,10 @@ test_run dynamic-data-mapping/dynamic-data-mapping-test \
 
 test_run document-library/document-library-test \
 	*.search.*Test \
+	com.liferay.document.library.app.service.test.DLAppServiceWhenSearchingFileEntriesTest \
 	com.liferay.document.library.trash.test.DLFileEntryTrashHandlerTest \
-	com.liferay.document.library.trash.test.DLFolderTrashHandlerTest 
+	com.liferay.document.library.trash.test.DLFolderTrashHandlerTest \
+; \
 
 test_run journal/journal-test \
 	*.search.*Test \
@@ -55,6 +57,14 @@ test_run journal/journal-test \
 	com.liferay.journal.service.test.JournalArticleScheduledTest \
 	com.liferay.journal.trash.test.JournalArticleTrashHandlerTest \
 	com.liferay.journal.trash.test.JournalFolderTrashHandlerTest
+
+test_run headless/headless-delivery/headless-delivery-test \
+	com.liferay.headless.delivery.resource.v1_0.test.*Test \
+; \
+
+test_run headless/headless-admin-user/headless-admin-user-test \
+	com.liferay.headless.admin.user.resource.v1_0.test.*Test \
+; \
 
 # Highest coverage of Search, part 2 (alphabetical)
 
@@ -82,6 +92,11 @@ test_run user-groups-admin/user-groups-admin-web-test \
 	*.search.*Test 
 
 # All other tests using Search in some capacity (alphabetical)
+
+test_run account/account-test \
+	com.liferay.account.retriever.test.*Test \
+	com.liferay.account.service.test.AccountEntryLocalServiceTest \
+; \
 
 test_run asset/asset-publisher-test \
 	com.liferay.asset.publisher.lar.test.AssetPublisherExportImportTest
@@ -118,9 +133,15 @@ test_run organizations/organizations-test \
 test_run portal-workflow/portal-workflow-kaleo-test \
 	com.liferay.portal.workflow.kaleo.internal.runtime.integration.test.WorkflowTaskManagerImplTest
 
+test_run redirect/redirect-test \
+	*.search.*Test \
+; \
+
 test_run wiki/wiki-test \
 	*.search.*Test \
-	com.liferay.wiki.trash.test.WikiPageTrashHandlerTest
+	com.liferay.wiki.attachments.test.WikiAttachmentsTest \
+	com.liferay.wiki.trash.test.WikiPageTrashHandlerTest \
+; \
 
 }
 
