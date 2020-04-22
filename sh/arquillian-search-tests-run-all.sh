@@ -66,6 +66,9 @@ test_run headless/headless-admin-user/headless-admin-user-test \
 	com.liferay.headless.admin.user.resource.v1_0.test.*Test \
 ; \
 
+test_run headless/headless-admin-taxonomy/headless-admin-taxonomy-test \
+	com.liferay.headless.admin.taxonomy.resource.v1_0.test.TaxonomyVocabularyResourceTest
+
 # Highest coverage of Search, part 2 (alphabetical)
 
 test_run asset/asset-test \
