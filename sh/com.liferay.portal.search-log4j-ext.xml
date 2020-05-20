@@ -2,7 +2,7 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 	<category name="com.liferay.portal.search.internal.IndexerRegistryImpl">
-		<priority value="DEBUG" />
+		<priority value="WARN" />
 	</category>
 	<category name="com.liferay.portal.search.internal.batch">
 		<priority value="DEBUG" />
@@ -14,7 +14,7 @@
 		<priority value="DEBUG" />
 	</category>
 	<category name="com.liferay.portal.search.internal.indexer.BaseModelRetrieverImpl">
-		<priority value="DEBUG" />
+		<priority value="WARN" />
 	</category>
 	<category name="com.liferay.portal.search.internal.indexer.DefaultIndexer">
 		<priority value="DEBUG" />

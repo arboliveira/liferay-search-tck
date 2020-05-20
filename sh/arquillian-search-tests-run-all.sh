@@ -56,7 +56,8 @@ test_run journal/journal-test \
 	com.liferay.journal.service.test.JournalArticleIndexVersionsTest \
 	com.liferay.journal.service.test.JournalArticleScheduledTest \
 	com.liferay.journal.trash.test.JournalArticleTrashHandlerTest \
-	com.liferay.journal.trash.test.JournalFolderTrashHandlerTest
+	com.liferay.journal.trash.test.JournalFolderTrashHandlerTest \
+; \
 
 test_run headless/headless-delivery/headless-delivery-test \
 	com.liferay.headless.delivery.resource.v1_0.test.*Test \
@@ -74,10 +75,12 @@ test_run headless/headless-admin-taxonomy/headless-admin-taxonomy-test \
 test_run asset/asset-test \
 	*.search.*Test \
 	com.liferay.asset.service.test.AssetVocabularyServiceTest \
-	com.liferay.asset.util.test.AssetHelperTest
+	com.liferay.asset.util.test.AssetHelperTest \
+; \
 
 test_run asset/asset-categories-test \
-	*.search.*Test 
+	*.search.*Test \
+; \
 
 test_run blogs/blogs-test \
 	*.search.*Test \
@@ -108,7 +111,8 @@ test_run bookmarks/bookmarks-test \
 	*.search.*Test \
 	com.liferay.bookmarks.service.test.BookmarksFolderServiceTest \
 	com.liferay.bookmarks.trash.test.BookmarksEntryTrashHandlerTest \
-	com.liferay.bookmarks.trash.test.BookmarksFolderTrashHandlerTest
+	com.liferay.bookmarks.trash.test.BookmarksFolderTrashHandlerTest \
+; \
 
 test_run configuration-admin/configuration-admin-test \
 	*.search.*Test
@@ -131,7 +135,8 @@ test_run message-boards/message-boards-test \
 
 test_run organizations/organizations-test \
 	*.search.*Test \
-	com.liferay.organizations.service.test.OrganizationLocalServiceWhenSearchingOrganizationsTreeTest
+	com.liferay.organizations.service.test.OrganizationLocalServiceWhenSearchingOrganizationsTreeTest \
+; \
 
 test_run portal-workflow/portal-workflow-kaleo-test \
 	com.liferay.portal.workflow.kaleo.internal.runtime.integration.test.WorkflowTaskManagerImplTest
