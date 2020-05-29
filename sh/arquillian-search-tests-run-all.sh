@@ -228,19 +228,19 @@ function do_test_run()
 		arg__app_server_parent_dir="-Dapp.server.parent.dir=$APP_SERVER_PARENT_DIR"
 	fi
 
+	#
+	# Environment variables
+	# so we don't need to write to
+	# portal-ext.properties 
+	#
+	# module.framework.properties.dependency.manager.sync.timeout=900
+	export LIFERAY_MODULE_PERIOD_FRAMEWORK_PERIOD_PROPERTIES_PERIOD_DEPENDENCY_PERIOD_MANAGER_PERIOD_SYNC_PERIOD_TIMEOUT=900
+
 	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration testIntegration --stacktrace \
 		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false "${gwtests[@]}"
 
-
-#	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration --quiet --stacktrace \
-#		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false
-#
-#	${LIFERAY_PORTAL_DIR}/gradlew testIntegration --stacktrace \
-#		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false "${gwtests[@]}"
-
-
-#	${LIFERAY_PORTAL_DIR}/gradlew cleanTestIntegration testIntegration --stacktrace \
-#		${arg__app_server_parent_dir} -Dsetup.wizard.enabled=false "${gwtests[@]}" \
+#	\
+#	--quiet \
 #	|| \
 #	{ 
 #		RETURN_CODE=$?
